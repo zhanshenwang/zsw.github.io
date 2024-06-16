@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="utf-8">
+  <title>联系我们</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .box {
+      padding-bottom: 50px;
+    }
+
+    p {
+      text-align: center;
+      font-weight: 300;
+      line-height: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="main">
+      <img src="img/logo.webp" alt="">
+      <h1>我眼中的日照</h1>
+
+      <div class="time">
+        <script type="text/javascript">
+          var date = new Date();
+          document.write("今天是：" + date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日");
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="head">
+
+    <div class="main">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="introduce.html">简介</a></li>
+        <li><a href="route.html">必去景点</a></li>
+        <li><a href="food.html">特色小吃</a></li>
+        <li><a href="article.html">文化人情特色</a></li>
+        <li><a class="select" href="about.html">联系我们</a></li>
+        <div class="clear"></div>
+      </ul>
+    </div>
+
+    <div class="main1">
+      <img id="zz" src="./img/menu.png" alt="">
+      <ul id="zz1">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="introduce.html">简介</a></li>
+        <li><a href="route.html">必去景点</a></li>
+        <li><a href="food.html">特色小吃</a></li>
+        <li><a href="article.html">文化人情特色</a></li>
+        <li><a class="select" href="about.html">联系我们</a></li>
+        <div class="clear"></div>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="box">
+    <div class="content">
+      <div class="">
+
+
+        <div class="row ">
+          <div class="content_title">
+            <h2>联系我们</h2>
+          </div>
+          <form action="#">
+            <div class="input_info">
+              <span class="label">用户名</span>
+              <input type="text" id="user" placeholder="请输入用户名（2-4位中文）">
+            </div>
+            <div class="input_info">
+              <span class="label">邮箱</span>
+              <input type="email" id="email" placeholder="请输入邮箱">
+            </div>
+            <div class="input_info">
+              <span class="label">电话</span>
+              <input type="tel" id="phone" placeholder="请输入电话">
+            </div>
+            <div class="input_info">
+              <span class="label">留言</span>
+              <textarea name="" id="liuyan" cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" value="提交" id="btn">
+          </form>
+        </div>
+
+        <div class="clear"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>版权属于&copy; 我眼中的日照 | 2023</p>
+  </div>
+</body>
+
+<script>
+  var btn = document.querySelector('#btn')
+  btn.addEventListener('click', function () {
+    var user = document.querySelector('#user').value
+    var email = document.querySelector('#email').value
+    var phone = document.querySelector('#phone').value
+    var liuyan = document.querySelector('#liuyan').value
+
+    var pattern = /[\u4e00-\u9fa5]{2,4}$/;
+    if (pattern.test(user) === true) {
+
+      var reg2 = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+      if (!reg2.test(email)) {
+        alert("请输入正确邮箱格式");
+        document.querySelector('#email').focus();
+        return false;
+      } else {
+        var reg3 = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if (!reg3.test(phone)) {
+          alert("请输入正确手机号");
+          document.querySelector('#phone').focus();
+          return false;
+        } else {
+          if (liuyan.length === 0) {
+            alert("请输入留言内容");
+            document.querySelector('#liuyan').focus();
+            return false;
+          } else {
+            alert('提交成功')
+          }
+        }
+      }
+
+    } else {
+      alert("请输入2-4位中文");
+      document.querySelector('#user').focus();
+    }
+  })
+</script>
+
+</html>
+<script src="./js/index.js"></script>
